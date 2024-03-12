@@ -1,0 +1,12 @@
+<nav
+  class="bg-slate-900 flex flex-row items-center justify-between px-20 py-4 font-bold shadow-xl"
+>
+  <div class="text-sky-200">DevStream</div>
+  <div class="flex flex-row gap-4">
+    @for (item of menuItems; track $index) {
+    <a class="py-1 px-2 hover:bg-slate-800 rounded-lg border border-slate-200/10" [routerLink]="item.path" routerLinkActive="active">{{ item.title }}</a>
+    }
+  </div>
+</nav>
+
+<router-outlet />
