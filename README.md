@@ -1,3 +1,9 @@
+# Comando para crear las páginas
+
+```
+ng generate component header/pages/usuarios --skip-selector --skip-tests
+```
+
 # FrontendEduGestion
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
