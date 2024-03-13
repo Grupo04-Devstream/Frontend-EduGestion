@@ -9,12 +9,9 @@ import { UsuariosResponse } from "../../../../interfaces/req-response";
 })
 export class TableComponent {
     @Input() data: UsuariosResponse[] = [];
+    @Input() handleDeleteUser: (id: number) => void = () => {};
 
-    deleteUser(id: number) {
-        alert("Usuario eliminado: Coming soon...");
-    }
-
-    editUser(id: number) {
+    handleEditUser(id: number) {
         alert("Usuario editado: Coming soon...");
     }
 }

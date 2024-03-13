@@ -78,7 +78,7 @@
         @if(usuarioService.loading()) {
         <p>Cargando...</p>
         } @else {
-        <app-table [data]="usuarioService.users()" />
+        <app-table [data]="usuarioService.users()" [handleDeleteUser]="handleDeleteUser.bind(this)"/>
         }
     </div>
 </div>

@@ -38,4 +38,16 @@ export class UsersService {
 
     return res;
   }
+
+  public async deleteUser(id: number) {
+    const res = this.http
+    .delete(`http://localhost:8080/api/v1/usuarios/${id}`)
+    .subscribe(() => {
+      this.#state.set({
+        users: this.#state().users.filter((user) => user.id !== id),
+        loading: false,
+      });
+    });
+    return res;
+  }
 }

@@ -41,8 +41,11 @@ export default class UsuariosComponent {
             idRol: parseInt(this.applyForm.value.role ?? "") ?? 0,
             password: this.applyForm.value.password ?? "",
         };
-        console.log("HOLA");
         const response = await this.usuarioService.createUser(userRequest);
         console.log(response);
+    }
+
+    async handleDeleteUser(id: number) {
+        const response = await this.usuarioService.deleteUser(id);
     }
 }
