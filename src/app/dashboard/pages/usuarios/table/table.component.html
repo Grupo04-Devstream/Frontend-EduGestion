@@ -10,11 +10,14 @@
                 <th scope="col" class="px-6 py-3">Rol</th>
                 <th scope="col" class="px-6 py-3">Fecha de nacimiento</th>
                 <th scope="col" class="px-6 py-3">Email</th>
+                <th scope="col" class="px-6 py-3">Operación</th>
             </tr>
         </thead>
         <tbody>
             @for (item of data; track $index) {
-            <tr class="bg-white border-b dark:bg-slate-800 dark:border-slate-700">
+            <tr
+                class="bg-white border-b dark:bg-slate-800 dark:border-slate-700"
+            >
                 <th
                     scope="row"
                     class="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white"
@@ -29,6 +32,18 @@
                 </td>
                 <td class="px-6 py-4">
                     {{ item.email }}
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex flex-row justify-start gap-8">
+                        <i
+                            class="fa-solid fa-trash text-red-600 hover:bg-red-950 rounded-md p-1 cursor-pointer"
+                            (click)="deleteUser(item.id)"
+                        ></i>
+                        <i
+                            class="fa-solid fa-pen-to-square text-green-600 hover:bg-green-950 rounded-md p-1 cursor-pointer"
+                            (click)="editUser(item.id)"
+                        ></i>
+                    </div>
                 </td>
             </tr>
             }
