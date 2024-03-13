@@ -10,6 +10,16 @@ export interface UsuariosResponse {
   trabajadores:    any[];
 }
 
+export interface UsuarioRequest {
+  nombre:          string;
+  apellido:        string;
+  fechaNacimiento: string;
+  email:           string;
+  password:        string;
+  idRol:           number;
+}
+
+
 export interface IDRol {
   id:          number;
   nombre:      string;
