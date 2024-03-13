@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-
 export const routes: Routes = [
   {
     path: 'dashboard',
@@ -19,12 +18,16 @@ export const routes: Routes = [
         path: 'niveles',
         title: 'Crud niveles',
         loadComponent: () => import('./dashboard/pages/niveles/niveles.component'),
-      },
-      {
+      }
+      ,{
+        path: 'departamentos',
+        title: 'Crud Departamentos',
+        loadComponent: () => import('./dashboard/pages/departamentos/departamentos.component'),
+      },{
         path: '',
         redirectTo: 'home',
         pathMatch: 'full',
-      },
+      }
 
     ],
   },

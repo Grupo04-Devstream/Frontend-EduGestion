@@ -1,9 +1,8 @@
-import { HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { DepartamentosService } from '../../../services/departamentos.service';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { flatMap } from 'rxjs';
+import { DepartamentosService } from '../../../services/departamentos.service';
 
 @Component({
   standalone: true,
@@ -42,10 +41,7 @@ export default class DepartamentosComponent{
         delete departamentoData.id;
       }
       this.saveDepartamento(departamentoData);   
-      this.formDepartamento.reset();
-      this.editando= -1;
-      this.accion= "Agregar";
-      this.mostrarForm= false;
+      this.cerrarModal();
     }
   }
 
@@ -56,6 +52,13 @@ export default class DepartamentosComponent{
     let dept= this.data[this.editando];
     this.nombre.setValue(dept.nombre);
     this.descripcion.setValue(dept.descripcion);
+  }
+
+  cerrarModal(){
+    this.formDepartamento.reset();
+    this.editando= -1;
+    this.accion= "Agregar";
+    this.mostrarForm= false;
   }
 
   ngOnInit(): void {
