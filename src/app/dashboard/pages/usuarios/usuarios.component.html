@@ -1,1 +1,8 @@
-<p>usuarios works!</p>
+<h1>Listado de usuarios:</h1>
+
+@if(usuarioService.loading()) {
+<p>Cargando...</p>
+} @else {
+<app-table [data]="usuarioService.users()" />
+
+}
