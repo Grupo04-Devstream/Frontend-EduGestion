@@ -13,8 +13,11 @@ export const routes: Routes = [
         path: 'usuarios',
         title: 'Crud usuarios',
         loadComponent: () => import('./dashboard/pages/usuarios/usuarios.component'),
-      },
-      {
+      },{
+        path: 'departamentos',
+        title: 'Crud Departamentos',
+        loadComponent: () => import('./dashboard/pages/departamentos/departamentos.component'),
+      },{
         path: '',
         redirectTo: 'home',
         pathMatch: 'full',
