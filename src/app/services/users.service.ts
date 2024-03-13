@@ -1,5 +1,5 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
-import { UsuariosResponse } from '../interfaces/req-response';
+import { UsuarioRequest, UsuariosResponse } from '../interfaces/req-response';
 import { HttpClient } from '@angular/common/http';
 
 interface State {
@@ -24,8 +24,18 @@ export class UsersService {
   constructor() {
     this.http
       .get<UsuariosResponse[]>('http://localhost:8080/api/v1/usuarios')
-      .subscribe(res => {
-        this.#state.set({ loading: false, users: res});
+      .subscribe((res) => {
+        this.#state.set({ loading: false, users: res });
       });
+  }
+
+  public async createUser(user: UsuarioRequest) {
+    const res = this.http
+      .post<UsuariosResponse>('http://localhost:8080/api/v1/usuarios', user)
+      .subscribe((res) => {
+        this.#state.set({ users: [...this.#state().users, res], loading: false });
+      });
+
+    return res;
   }
 }

@@ -1,8 +1,84 @@
-<h1>Listado de usuarios:</h1>
+<div class="pt-10 flex flex-col gap-8">
+    <div
+        class="mx-auto px-8 py-4 container border border-slate-300/20 rounded-xl shadow-xl flex flex-col gap-2"
+    >
+        <h1 class="text-center text-lg font-bold">Crear nuevo usuario:</h1>
+        <form
+            [formGroup]="applyForm"
+            (submit)="submitUser()"
+            class="flex flex-col gap-4"
+        >
+            <div class="grid grid-cols-3 gap-3">
+                <input
+                    id="nombre"
+                    formControlName="nombre"
+                    type="text"
+                    class="outline-none p-2 rounded-xl bg-slate-700"
+                    placeholder="Ingrese el nombre aquí"
+                />
+                <input
+                    id="apellido"
+                    formControlName="apellido"
+                    type="text"
+                    class="outline-none p-2 rounded-xl bg-slate-700"
+                    placeholder="Ingrese el apellido aquí"
+                />
+                <input
+                    id="fechaNacimiento"
+                    formControlName="fechaNacimiento"
+                    type="date"
+                    class="outline-none p-2 rounded-xl bg-slate-700"
+                    placeholder="Ingrese la fecha de nacimiento aquí"
+                />
+                <input
+                    id="email"
+                    formControlName="email"
+                    type="text"
+                    class="outline-none p-2 rounded-xl bg-slate-700"
+                    placeholder="Ingrese el email aquí"
+                />
+                <input
+                    id="password"
+                    formControlName="password"
+                    type="text"
+                    class="outline-none p-2 rounded-xl bg-slate-700"
+                    placeholder="Ingrese el password aquí"
+                />
+                <div class="flex flex-row items-center">
+                    <label
+                        for="role"
+                        class="text-sm font-medium text-slate-900 dark:text-white w-52"
+                        >Seleccione el rol</label
+                    >
+                    <select
+                        id="role"
+                        formControlName="role"
+                        class="p-2 h-full rounded-xl bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:ring-blue-500 focus:border-blue-500 w-full dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                        <option selected disabled>Elija una opción</option>
+                        <option value="1">Trabajador</option>
+                        <option value="2">Estudiante</option>
+                    </select>
+                </div>
+            </div>
+            <button
+                type="submit"
+                class="primary"
+                class="bg-slate-500 hover:bg-slate-400 text-white font-bold py-2 px-4 rounded w-full"
+            >
+                Crear usuario
+            </button>
+        </form>
+    </div>
 
-@if(usuarioService.loading()) {
-<p>Cargando...</p>
-} @else {
-<app-table [data]="usuarioService.users()" />
-
-}
+    <div
+        class="mx-auto px-8 py-4 container border border-slate-300/20 rounded-xl shadow-xl flex flex-col gap-2"
+    >
+        <h1 class="text-center text-lg font-bold">Listado de usuarios:</h1>
+        @if(usuarioService.loading()) {
+        <p>Cargando...</p>
+        } @else {
+        <app-table [data]="usuarioService.users()" />
+        }
+    </div>
+</div>
