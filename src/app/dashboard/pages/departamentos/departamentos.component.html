@@ -1,0 +1,53 @@
+<div class="max-w-md mx-auto mt-8">
+  <button (click)="mostrarForm= !mostrarForm" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-2 mb-2 rounded focus:outline-none focus:shadow-outline-green">
+    Agregar Departamento
+  </button>
+
+  <div *ngIf="mostrarForm" class="overlay">
+    
+    <div *ngIf="mostrarForm" class="bg-white rounded-lg shadow-md p-6 mb-6">
+      <form [formGroup]="formDepartamento" (ngSubmit)="procesarDataForm()" class="space-y-4">
+        <div class="mb-4">
+          <label for="nombre" class="block text-sm font-medium text-black">Nombre</label>
+          <input type="text" id="nombre" formControlName="nombre" class="mt-1 p-2 border rounded w-full focus:outline-none focus:border-blue-500">
+          <div class="text-red-500 text-xs" [hidden]="nombre.valid || nombre.pristine">El nombre es obligatorio</div>
+        </div>
+        
+        <div class="mb-4">
+          <label for="descripcion" class="block text-sm font-medium text-black">Descripcion</label>
+          <input type="text" id="descripcion" formControlName="descripcion" class="mt-1 p-2 border rounded w-full focus:outline-none focus:border-blue-500">
+          <div class="text-red-500 text-xs" [hidden]="descripcion.valid || descripcion.pristine">La descripción es obligatoria</div>
+        </div>
+        
+        <button [disabled]="!formDepartamento.valid" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-2 rounded focus:outline-none focus:shadow-outline-blue"
+            [ngClass]="{'cursor-not-allowed opacity-50': !formDepartamento.valid}">
+          {{accion}}
+        </button>
+
+        <button (click)="mostrarForm= !mostrarForm" class="ml-5 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-red">
+          Cerrar
+        </button>
+  
+      </form>      
+    </div>
+
+    
+  </div>  
+  
+  <ul class="grid gap-4">
+    <li *ngFor="let departamento of data; let i= index" class="p-4 bg-white rounded-md shadow-md">
+      <div class="flex justify-between items-center">
+        <h3 class="text-black font-semibold">{{departamento.nombre }}</h3>
+        <div class="flex space-x-2">
+          <button (click)="cargarData(i)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue">
+            Editar
+          </button>
+          <button (click)="deleteDepartamento(departamento.id)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-red">
+            Eliminar
+          </button>
+        </div>
+      </div>
+      <p class="text-gray-600 mt-2">{{ departamento.descripcion }}</p>
+    </li>
+  </ul>
+</div>
