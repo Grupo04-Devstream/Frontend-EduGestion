@@ -4,6 +4,7 @@
     >
         <h1 class="text-center text-lg font-bold">Crear nuevo usuario:</h1>
         <form
+            autocomplete="off"
             [formGroup]="applyForm"
             (submit)="submitUser()"
             class="flex flex-col gap-4"
@@ -78,7 +79,10 @@
         @if(usuarioService.loading()) {
         <p>Cargando...</p>
         } @else {
-        <app-table [data]="usuarioService.users()" [handleDeleteUser]="handleDeleteUser.bind(this)"/>
+        <app-table
+            [data]="usuarioService.users()"
+            [handleDeleteUser]="handleDeleteUser.bind(this)"
+        />
         }
     </div>
 </div>
