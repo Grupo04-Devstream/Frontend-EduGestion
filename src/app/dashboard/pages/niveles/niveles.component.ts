@@ -31,21 +31,26 @@ export default class NivelesComponent implements OnInit {
       id:[''],
       nombre : ['', Validators.required],
     });
+    this.getAllNiveles();
+    
 
+  }
+  getAllNiveles(){
     this.nivelService.getAllNiveles().subscribe(resp=>{
       this.niveles = resp;
     },
     error =>(console.log(error))
     );
-
+  
   }
+
 
   guardar(): void{
     this.nivelService.saveNivel(this.nivelForm.value).subscribe(resp =>{
       console.log(this.nivelForm.value);
       this.nivelForm.reset();
       this.niveles=this.niveles.filter((nivel:any)=>resp.id!==nivel.id);
-      this.niveles.push(resp);
+      this.getAllNiveles();
     },
     error=>{ console.error(error)}
     )
@@ -54,7 +59,7 @@ export default class NivelesComponent implements OnInit {
   eliminar(nivel: { id: number, nombre: string }):void{
     this.nivelService.deleteNivel(nivel.id).subscribe(resp=>{
       console.log(resp);
-      this.niveles.pop();
+      this.getAllNiveles();
     },
     error=>{ console.error(error)}
     )
@@ -65,18 +70,11 @@ export default class NivelesComponent implements OnInit {
     
     this.nivelService.updateNivel(datos_js).subscribe(rep=>{
       console.log(datos_js);
+      this.getAllNiveles();
 
     },
     error=>{ console.error(error)}
     )
   }
-
-  editar(nivel: { id: number, nombre: string }){
-      this.nivelForm.setValue({
-        id:nivel.id,
-        nombre: nivel.nombre,
-      })
-  }
-
 
 }
