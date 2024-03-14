@@ -13,15 +13,6 @@ import { UsuarioRequest } from "../../../interfaces/req-response";
 export default class UsuariosComponent {
     public usuarioService = inject(UsersService);
 
-    private usuario: UsuarioRequest = {
-        nombre: "",
-        apellido: "",
-        fechaNacimiento: "",
-        email: "",
-        password: "",
-        idRol: 0,
-    };
-
     applyForm = new FormGroup({
         nombre: new FormControl(""),
         apellido: new FormControl(""),
@@ -41,8 +32,11 @@ export default class UsuariosComponent {
             idRol: parseInt(this.applyForm.value.role ?? "") ?? 0,
             password: this.applyForm.value.password ?? "",
         };
-        console.log("HOLA");
         const response = await this.usuarioService.createUser(userRequest);
         console.log(response);
+    }
+
+    async handleDeleteUser(id: number) {
+        const response = await this.usuarioService.deleteUser(id);
     }
 }
