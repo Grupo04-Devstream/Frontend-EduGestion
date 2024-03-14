@@ -13,15 +13,6 @@ import { UsuarioRequest } from "../../../interfaces/req-response";
 export default class UsuariosComponent {
     public usuarioService = inject(UsersService);
 
-    private usuario: UsuarioRequest = {
-        nombre: "",
-        apellido: "",
-        fechaNacimiento: "",
-        email: "",
-        password: "",
-        idRol: 0,
-    };
-
     applyForm = new FormGroup({
         nombre: new FormControl(""),
         apellido: new FormControl(""),

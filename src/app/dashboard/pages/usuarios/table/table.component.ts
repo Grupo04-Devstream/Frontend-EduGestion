@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { UsuariosResponse } from "../../../../interfaces/req-response";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "app-table",
@@ -11,7 +12,9 @@ export class TableComponent {
     @Input() data: UsuariosResponse[] = [];
     @Input() handleDeleteUser: (id: number) => void = () => {};
 
+    constructor(private router: Router) {}
+
     handleEditUser(id: number) {
-        alert("Usuario editado: Coming soon...");
+        this.router.navigate(["dashboard/usuario", id]);
     }
 }
