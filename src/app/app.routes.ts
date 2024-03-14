@@ -14,6 +14,10 @@ export const routes: Routes = [
         title: 'Crud usuarios',
         loadComponent: () => import('./dashboard/pages/usuarios/usuarios.component'),
       },{
+        path: 'usuario/:id',
+        title: 'Usuario',
+        loadComponent: () => import('./dashboard/pages/usuario/usuario.component'),
+      },{
         path: 'departamentos',
         title: 'Crud Departamentos',
         loadComponent: () => import('./dashboard/pages/departamentos/departamentos.component'),
