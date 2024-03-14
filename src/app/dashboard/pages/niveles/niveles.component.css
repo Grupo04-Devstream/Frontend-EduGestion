@@ -1,0 +1,122 @@
+.formularioRegistro {
+    background-color: #333; /* Color de fondo oscuro */
+    color: #fff; /* Color del texto blanco */
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
+    width: 40%;
+    margin-left: 480px;
+    margin-top: 30px;
+}
+
+.formularioRegistro h2 {
+    font-size: 24px; 
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.table-container {
+    margin-top: 20px;
+}
+
+.table-container h2 {
+    margin-bottom: 10px;
+    margin-left: 480px;
+    margin-top: 50px;
+    font-size: 24px;
+    margin-bottom: 20px; 
+}
+
+.table {
+    width: 40%;
+    border-collapse: collapse;
+    margin-left:30em;
+    
+}
+
+
+.table th,
+.table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    
+}
+
+.table tr td{
+    text-align: center;
+    font-family: Arial;
+    
+}
+
+.table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Estilos para los botones de eliminar y editar */
+.btn-danger {
+    display: inline-block;
+    width: 130px;
+    padding: 8px 36px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #bc1616;
+    color: #fff;
+    position: relative;
+    margin: 10px;
+}
+.btn-warning {
+    display: inline-block;
+    width: 130px;
+    padding: 8px 36px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #dfb324;
+    color: #fff;
+    position: relative;
+    margin: 20px;
+}
+
+.btn-danger:hover {
+    background-color: #ff0000;
+}
+.btn-warning:hover {
+    background-color: #ffe100;
+}
+
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Estilos para los iconos de eliminar y editar */
+.btn::after {
+    content: attr(data-icon);
+    font-family: "Arial", sans-serif; /* Cambia la fuente según la fuente de tus iconos */
+    font-size: 14px;
+    margin-left: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-delete::after {
+    content: "❌"; /* Símbolo de eliminar */
+}
+
+.btn-edit::after {
+    content: "✏️"; /* Símbolo de editar */
+}

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import HeaderComponent from './dashboard/header.component';
+import { NivelesService } from './services/niveles.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,18 @@ import HeaderComponent from './dashboard/header.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'Frontend-EduGestion';
+export class AppComponent implements OnInit{
+  
+
+
+  constructor(
+
+    ){
+
+  }
+  ngOnInit(): void{
+
+  }
+
+
 }

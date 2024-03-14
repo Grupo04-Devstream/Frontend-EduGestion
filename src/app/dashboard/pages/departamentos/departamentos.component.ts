@@ -1,9 +1,8 @@
-import { HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { DepartamentosService } from '../../../services/departamentos.service';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { flatMap } from 'rxjs';
+import { DepartamentosService } from '../../../services/departamentos.service';
 
 @Component({
   standalone: true,

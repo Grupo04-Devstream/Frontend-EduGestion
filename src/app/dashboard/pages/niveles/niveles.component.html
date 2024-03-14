@@ -1,0 +1,37 @@
+
+<div class="formularioRegistro">
+    <div><h2>AGREGAR NUEVO NIVEL</h2></div>
+    <form [formGroup]="nivelForm" (ngSubmit)="guardar()">
+        <div class="form-group">
+            <label>Nombre</label>
+            <br>
+            <input type="text" formControlName="nombre" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="nivelForm.invalid">Guardar</button>
+    </form>
+</div>
+
+<div class="table-container">
+    <h2>NIVELES REGISTRADOS</h2>
+    <table class="table" [formGroup]="nivelForm" >
+        <thead>
+            <tr>
+                <th style="width: 50px">ID</th>
+                <th style="width: 200px;">Nombre</th>
+                <th style="width: 350px;">Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let item of niveles">
+                <td>{{item.id}}</td>
+                <td>{{item.nombre}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-delete" (click)="eliminar(item)">Eliminar</button>
+                    <button type="button" class="btn btn-warning btn-edit" (click)="update(item)">Editar</button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+<p>niveles works!</p>
