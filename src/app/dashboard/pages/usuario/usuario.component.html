@@ -3,6 +3,7 @@
     >
         <h1 class="text-center text-lg font-bold">Crear nuevo usuario:</h1>
         <form
+            autocomplete="off"
             [formGroup]="applyForm"
             (submit)="updateUser()"
             class="flex flex-col gap-4"
