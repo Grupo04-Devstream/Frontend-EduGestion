@@ -69,6 +69,15 @@ export class UsersService {
         user
       );
     const res = await lastValueFrom(response);
+    this.#state.set({
+      users: this.#state().users.map((user) => {
+        if (user.id == id) {
+          return res;
+        }
+        return user;
+      }),
+      loading: false,
+    });
     return res;
   }
 }
