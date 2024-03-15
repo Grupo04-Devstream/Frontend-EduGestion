@@ -1,11 +1,11 @@
 
 <div class="formularioRegistro">
-    <div><h2>AGREGAR NUEVO NIVEL</h2></div>
+    <h2>AGREGAR NUEVO NIVEL</h2>
     <form [formGroup]="nivelForm" (ngSubmit)="guardar()">
         <div class="form-group">
             <label>Nombre</label>
             <br>
-            <input type="text" formControlName="nombre" class="form-control">
+            <input title="Name" type="text" formControlName="nombre" class="form-control">
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="nivelForm.invalid">Guardar</button>
     </form>
