@@ -37,11 +37,11 @@
                     <div class="flex flex-row justify-start gap-8">
                         <i
                             class="fa-solid fa-trash text-red-600 hover:bg-red-950 rounded-md p-1 cursor-pointer"
-                            (click)="deleteUser(item.id)"
+                            (click)="this.handleDeleteUser(item.id)"
                         ></i>
                         <i
                             class="fa-solid fa-pen-to-square text-green-600 hover:bg-green-950 rounded-md p-1 cursor-pointer"
-                            (click)="editUser(item.id)"
+                            (click)="this.handleEditUser(item.id)"
                         ></i>
                     </div>
                 </td>

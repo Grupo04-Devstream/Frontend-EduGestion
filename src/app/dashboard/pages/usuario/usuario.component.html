@@ -1,11 +1,10 @@
-<div class="pt-10 flex flex-col gap-8">
-    <div
+<div
         class="mx-auto px-8 py-4 container border border-slate-300/20 rounded-xl shadow-xl flex flex-col gap-2"
     >
         <h1 class="text-center text-lg font-bold">Crear nuevo usuario:</h1>
         <form
             [formGroup]="applyForm"
-            (submit)="submitUser()"
+            (submit)="updateUser()"
             class="flex flex-col gap-4"
         >
             <div class="grid grid-cols-3 gap-3">
@@ -66,19 +65,8 @@
                 class="primary"
                 class="bg-slate-500 hover:bg-slate-400 text-white font-bold py-2 px-4 rounded w-full"
             >
-                Crear usuario
+                Actualizar usuario
             </button>
         </form>
     </div>
 
-    <div
-        class="mx-auto px-8 py-4 container border border-slate-300/20 rounded-xl shadow-xl flex flex-col gap-2"
-    >
-        <h1 class="text-center text-lg font-bold">Listado de usuarios:</h1>
-        @if(usuarioService.loading()) {
-        <p>Cargando...</p>
-        } @else {
-        <app-table [data]="usuarioService.users()" [handleDeleteUser]="handleDeleteUser.bind(this)"/>
-        }
-    </div>
-</div>
