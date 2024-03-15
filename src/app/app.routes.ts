@@ -13,10 +13,6 @@ export const routes: Routes = [
         title: 'Crud usuarios',
         loadComponent: () => import('./dashboard/pages/usuarios/usuarios.component'),
       },{
-        path: 'niveles',
-        title: 'Crud niveles',
-        loadComponent: () => import('./dashboard/pages/niveles/niveles.component'),
-      },{
         path: 'usuario/:id',
         title: 'Usuario',
         loadComponent: () => import('./dashboard/pages/usuario/usuario.component'),

@@ -12,23 +12,24 @@
 </div>
 
 <div class="table-container">
-    <h2 class="font-bold text-lg text-center">NIVELES REGISTRADOS</h2>
-    <table class="table" [formGroup]="nivelForm">
+    <h2>NIVELES REGISTRADOS</h2>
+    <table class="table" [formGroup]="nivelForm" >
         <thead>
             <tr>
                 <th style="width: 50px">ID</th>
-                <th style="width: 200px">Nombre</th>
-                <th style="width: 350px">Accion</th>
+                <th style="width: 200px;">Nombre</th>
+                <th style="width: 350px;">Accion</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of niveles">
-                <td>{{ item.id }}</td>
-                <td>{{ item.nombre }}</td>
+            <tr *ngFor ="let item of niveles">
+                <td>{{item.id}}</td>
+                <td>{{item.nombre}}</td>
                 <td>
-                    <button type="button" class="btn btn-danger btn-delete" (click)="eliminar(item)" [disabled]="mostrarEdit[item.id]">Eliminar</button>
+                    <button type="button" class="btn btn-danger btn-delete" (click)="eliminar(item)" [disabled]="mostrarEdit[item.id]">Eliminar <i class="fa-solid fa-trash"></i></button>
+                    
                     <!--<button type="button" class="btn btn-warning btn-edit" (click)="update(item)">Editar</button>-->
-                    <button type="button" class="btn btn-warning btn-edit" (click)="mostrarEdit[item.id]= !mostrarEdit[item.id]" >Editar </button>
+                    <button type="button" class="btn btn-warning btn-edit" (click)="mostrarEdit[item.id]= !mostrarEdit[item.id]" >Editar <i class="fa-solid fa-pen-to-square"></i></button>
                         <div *ngIf="mostrarEdit[item.id]" class="overlay">
             
                             <div *ngIf="mostrarEdit[item.id]" class="bg-white rounded-lg shadow-md p-6 mb-6">
@@ -52,6 +53,7 @@
                 </td>
             </tr>
         </tbody>
+
     </table>
 </div>
 <p>niveles works!</p>
