@@ -15,5 +15,11 @@ export default class HeaderComponent {
     .filter((route) => route.path !== '')
     .filter((route) => !route.path?.includes(':'));
 
+  public estadoHeader = false;
+
   constructor() {}
+
+  handleMenuClick() {
+    this.estadoHeader = !this.estadoHeader;
+  }
 }

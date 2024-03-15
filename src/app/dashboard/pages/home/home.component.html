@@ -10,10 +10,10 @@
         la información relevante de tu proyecto.
     </p>
     <h3 class="text-lg font-semibold">Integrantes del Proyecto:</h3>
-    <ul class="flex flex-row items-center gap-4">
+    <ul class="grid sm:grid-cols-2 md:grid-cols-4 items-center gap-4">
         @for (item of users; track $index) {
         <li
-            class="flex flex-col justify-center items-center gap-2 py-4 px-4 bg-slate-700 rounded-xl cursor-pointer hover:bg-slate-600 transition-all duration-300"
+            class="w-full flex flex-col justify-center items-center gap-2 py-4 px-4 bg-slate-700 rounded-xl cursor-pointer hover:bg-slate-600 transition-all duration-300"
         >
             <img
                 src="{{ item.icono }}"
