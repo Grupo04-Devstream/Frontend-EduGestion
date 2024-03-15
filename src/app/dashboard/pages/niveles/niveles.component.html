@@ -26,7 +26,7 @@
                 <td>{{item.id}}</td>
                 <td>{{item.nombre}}</td>
                 <td>
-                    <button type="button" class="btn btn-danger btn-delete" (click)="eliminar(item)">Eliminar</button>
+                    <button type="button" class="btn btn-danger btn-delete" (click)="eliminar(item)" [disabled]="mostrarEdit[item.id]">Eliminar</button>
                     <!--<button type="button" class="btn btn-warning btn-edit" (click)="update(item)">Editar</button>-->
                     <button type="button" class="btn btn-warning btn-edit" (click)="mostrarEdit[item.id]= !mostrarEdit[item.id]" >Editar </button>
                         <div *ngIf="mostrarEdit[item.id]" class="overlay">

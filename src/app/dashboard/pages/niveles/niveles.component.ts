@@ -39,6 +39,7 @@ export default class NivelesComponent implements OnInit {
     })
 
     this.getAllNiveles();
+    
 
   }
   get nombre(){
@@ -89,11 +90,13 @@ export default class NivelesComponent implements OnInit {
 
   editar(nivel: { id: number, nombre: string }):void{
     const nombre = this.formEdit.get('nombre')?.value;
-    const datos_js = { id: nivel.id, nombre: nombre }
+    const datos_js = { id: nivel.id, nombre: nombre };
+    console.log(this.mostrarEdit[nivel.id]);
     
     this.nivelService.updateNivel(datos_js).subscribe(rep=>{
       console.log(datos_js);
       this.getAllNiveles();
+      console.log(this.mostrarEdit[nivel.id]);
     },
     error=>{ console.error(error)}
     )
