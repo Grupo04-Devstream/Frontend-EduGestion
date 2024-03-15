@@ -27,7 +27,28 @@
                 <td>{{item.nombre}}</td>
                 <td>
                     <button type="button" class="btn btn-danger btn-delete" (click)="eliminar(item)">Eliminar</button>
-                    <button type="button" class="btn btn-warning btn-edit" (click)="update(item)">Editar</button>
+                    <!--<button type="button" class="btn btn-warning btn-edit" (click)="update(item)">Editar</button>-->
+                    <button type="button" class="btn btn-warning btn-edit" (click)="mostrarEdit[item.id]= !mostrarEdit[item.id]" >Editar </button>
+                        <div *ngIf="mostrarEdit[item.id]" class="overlay">
+            
+                            <div *ngIf="mostrarEdit[item.id]" class="bg-white rounded-lg shadow-md p-6 mb-6">
+                                <form [formGroup]="formEdit" (ngSubmit)="editar(item)" class="space-y-4">
+                                    <div class="mb-4">
+                                    <label for="nombre" class="block text-sm font-medium text-black">Nombre</label>
+                                    <input type="text" id="nombre" formControlName="nombre" class="mt-1 p-2 border rounded w-full focus:outline-none focus:border-blue-500">
+                                    <div class="text-red-500 text-xs" [hidden]="nombre?.valid || nombre?.pristine">El nombre es obligatorio</div>
+                                    </div>
+
+                                    <button [disabled]="!formEdit.valid" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-2 rounded focus:outline-none focus:shadow-outline-blue"
+                                        [ngClass]="{'cursor-not-allowed opacity-50': !formEdit.valid}">Actualizar</button>
+
+                                    <button (click)="cerrar(item.id)" class="ml-5 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-red">
+                                    Cerrar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
                 </td>
             </tr>
         </tbody>

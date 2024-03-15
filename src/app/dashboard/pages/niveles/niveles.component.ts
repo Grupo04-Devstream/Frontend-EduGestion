@@ -17,24 +17,34 @@ export default class NivelesComponent implements OnInit {
   nivelForm: FormGroup;
   grados:any;
   niveles:any;
+  formEdit: FormGroup;
+  mostrarEdit: { [key: number]: boolean } = {}
   
 
   constructor(
     public fb: FormBuilder,
     public nivelService: NivelesService,
-    ){
+    ){}
 
-  }
+  
 
   ngOnInit(): void{
     this.nivelForm = this.fb.group({
       id:[''],
       nombre : ['', Validators.required],
     });
+    this.formEdit= this.fb.group({
+      id: [''],
+      nombre: ['', Validators.required],
+    })
+
     this.getAllNiveles();
-    
 
   }
+  get nombre(){
+    return this.formEdit.get('nombre');
+  }
+
   getAllNiveles(){
     this.nivelService.getAllNiveles().subscribe(resp=>{
       this.niveles = resp;
@@ -76,5 +86,24 @@ export default class NivelesComponent implements OnInit {
     error=>{ console.error(error)}
     )
   }
+
+  editar(nivel: { id: number, nombre: string }):void{
+    const nombre = this.formEdit.get('nombre')?.value;
+    const datos_js = { id: nivel.id, nombre: nombre }
+    
+    this.nivelService.updateNivel(datos_js).subscribe(rep=>{
+      console.log(datos_js);
+      this.getAllNiveles();
+    },
+    error=>{ console.error(error)}
+    )
+    this.cerrar(nivel.id);
+  }
+
+  cerrar(id:number){
+    this.formEdit.reset();
+    this.mostrarEdit[id]= false;
+  }
+
 
 }
