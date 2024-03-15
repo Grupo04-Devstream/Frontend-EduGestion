@@ -1,12 +1,40 @@
+.formularioRegistro {
+    background-color: #333; /* Color de fondo oscuro */
+    color: #fff; /* Color del texto blanco */
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
+    width: 40%;
+    margin-left: 480px;
+    margin-top: 30px;
+}
+
+.formularioRegistro h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+
 
 .table-container {
     margin-top: 20px;
 }
 
+.table-container h2 {
+    margin-bottom: 10px;
+    margin-left: 480px;
+    margin-top: 50px;
+    font-size: 24px;
+    margin-bottom: 20px; 
+}
+
 .table {
     width: 40%;
     border-collapse: collapse;
-    margin: auto;
+    margin-left:30em;
+    
 }
 
 
