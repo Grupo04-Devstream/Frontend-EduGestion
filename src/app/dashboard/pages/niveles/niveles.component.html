@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <div class="formularioRegistro">
     <div><h2>AGREGAR NUEVO NIVEL</h2></div>
@@ -8,24 +9,50 @@
             <input type="text" formControlName="nombre" class="form-control">
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="nivelForm.invalid">Guardar</button>
+=======
+<div
+    class="bg-slate-700 p-6 rounded-xl shadow-2xl mx-auto mt-5 w-2/5 flex flex-col gap-2 text-slate-50"
+>
+    <h2 class="font-bold text-lg">AGREGAR NUEVO NIVEL</h2>
+    <form
+        [formGroup]="nivelForm"
+        (ngSubmit)="guardar()"
+        class="flex flex-col gap-2"
+    >
+        <label>Nombre</label>
+        <input
+            title="Name"
+            type="text"
+            formControlName="nombre"
+            class="bg-slate-600 rounded-full px-4 py-1 mx-auto w-full"
+        />
+        <button
+            type="submit"
+            class="bg-slate-900 py-1 px-2 rounded-xl"
+            [disabled]="nivelForm.invalid"
+        >
+            Guardar
+        </button>
+>>>>>>> c3141411e36ba7b421f4beaefca95c856684483a
     </form>
 </div>
 
 <div class="table-container">
-    <h2>NIVELES REGISTRADOS</h2>
-    <table class="table" [formGroup]="nivelForm" >
+    <h2 class="font-bold text-lg text-center">NIVELES REGISTRADOS</h2>
+    <table class="table" [formGroup]="nivelForm">
         <thead>
             <tr>
                 <th style="width: 50px">ID</th>
-                <th style="width: 200px;">Nombre</th>
-                <th style="width: 350px;">Accion</th>
+                <th style="width: 200px">Nombre</th>
+                <th style="width: 350px">Accion</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor ="let item of niveles">
-                <td>{{item.id}}</td>
-                <td>{{item.nombre}}</td>
+            <tr *ngFor="let item of niveles">
+                <td>{{ item.id }}</td>
+                <td>{{ item.nombre }}</td>
                 <td>
+<<<<<<< HEAD
                     <button type="button" class="btn btn-danger btn-delete" (click)="eliminar(item)" [disabled]="mostrarEdit[item.id]">Eliminar</button>
                     <!--<button type="button" class="btn btn-warning btn-edit" (click)="update(item)">Editar</button>-->
                     <button type="button" class="btn btn-warning btn-edit" (click)="mostrarEdit[item.id]= !mostrarEdit[item.id]" >Editar </button>
@@ -49,10 +76,25 @@
                             </div>
                         </div>
 
+=======
+                    <button
+                        type="button"
+                        class="btn btn-danger btn-delete"
+                        (click)="eliminar(item)"
+                    >
+                        Eliminar
+                    </button>
+                    <button
+                        type="button"
+                        class="btn btn-warning btn-edit"
+                        (click)="update(item)"
+                    >
+                        Editar
+                    </button>
+>>>>>>> c3141411e36ba7b421f4beaefca95c856684483a
                 </td>
             </tr>
         </tbody>
-
     </table>
 </div>
 <p>niveles works!</p>

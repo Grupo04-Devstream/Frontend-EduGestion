@@ -3,6 +3,7 @@
     >
         <h1 class="text-center text-lg font-bold">Crear nuevo usuario:</h1>
         <form
+            autocomplete="off"
             [formGroup]="applyForm"
             (submit)="updateUser()"
             class="flex flex-col gap-4"
@@ -39,7 +40,7 @@
                 <input
                     id="password"
                     formControlName="password"
-                    type="text"
+                    type="password"
                     class="outline-none p-2 rounded-xl bg-slate-700"
                     placeholder="Ingrese el password aquí"
                 />

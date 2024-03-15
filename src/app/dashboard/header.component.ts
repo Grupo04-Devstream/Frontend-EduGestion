@@ -15,5 +15,18 @@ export default class HeaderComponent {
     .filter((route) => route.path !== '')
     .filter((route) => !route.path?.includes(':'));
 
+  public estadoHeader = false;
+  public darkTheme = true;
+
   constructor() {}
+
+  handleMenuClick() {
+    this.estadoHeader = !this.estadoHeader;
+  }
+
+  handleThemeClick() {
+    if (!this.darkTheme) document.body.classList.add('dark');
+    else document.body.classList.remove('dark');
+    this.darkTheme = !this.darkTheme;
+  }
 }
