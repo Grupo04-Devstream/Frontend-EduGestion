@@ -25,6 +25,8 @@ export default class HeaderComponent {
   }
 
   handleThemeClick() {
+    if (!this.darkTheme) document.body.classList.add('dark');
+    else document.body.classList.remove('dark');
     this.darkTheme = !this.darkTheme;
   }
 }
