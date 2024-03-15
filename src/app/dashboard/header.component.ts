@@ -16,10 +16,15 @@ export default class HeaderComponent {
     .filter((route) => !route.path?.includes(':'));
 
   public estadoHeader = false;
+  public darkTheme = true;
 
   constructor() {}
 
   handleMenuClick() {
     this.estadoHeader = !this.estadoHeader;
+  }
+
+  handleThemeClick() {
+    this.darkTheme = !this.darkTheme;
   }
 }
